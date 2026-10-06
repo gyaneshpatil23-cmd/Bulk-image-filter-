@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bulk Image Filter</title>
+  <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+
+  <div class="container">
+
+    <header class="topbar">
+      <h1>Bulk Image Filter</h1>
+
+      <div class="controls">
+        <input type="file" id="imageInput" multiple accept="image/*" hidden>
+        <button type="button" id="addBtn" class="btn btn-secondary">Add images</button>
+        <button type="button" id="downloadBtn" class="btn btn-primary" disabled>Download</button>
+      </div>
+    </header>
+
+    <div class="main">
+
+      <!-- LEFT GRID PANEL -->
+      <section class="grid-panel" id="dropZone" aria-label="Images">
+        <div class="empty-state" id="emptyState">
+          <p class="empty-title">Drop images here</p>
+          <p class="empty-hint">or use “Add images”. Everything stays in your browser.</p>
+        </div>
+        <div class="image-grid" id="imageGrid"></div>
+      </section>
+
+      <!-- RIGHT EDIT PANEL -->
+      <aside class="side-panel" aria-label="Filters and adjustments">
+        <fieldset id="editControls" disabled>
+
+          <div class="target">
+            <span id="targetLabel">No images yet</span>
+            <button type="button" id="editAllBtn" class="link-btn" hidden>Edit all</button>
+          </div>
+
+          <h2>Filters</h2>
+          <div class="filters" id="filterPanel"></div>
+
+          <h2>Adjust</h2>
+          <div class="sliders" id="sliderPanel"></div>
+
+          <button type="button" id="resetBtn" class="btn btn-secondary btn-block">Reset</button>
+
+        </fieldset>
+      </aside>
+
+    </div>
+
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+  <script src="static/script.js"></script>
+</body>
+</html>
